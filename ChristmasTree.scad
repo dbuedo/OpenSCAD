@@ -70,7 +70,7 @@ module star_tip() {
 }
 
 
-module star_generator(number_of_tips) {
+module star(number_of_tips) {
 	rotation_angle = DEGREES_IN_CIRCLE / number_of_tips;
 
 	for( k = [0:number_of_tips-1] )
@@ -78,12 +78,12 @@ module star_generator(number_of_tips) {
 			star_tip();
 }
 
-module star() {
+module star_on_top() {
 	z_position = 57;
 	number_of_tips = 5;
 
 	translate( [0, 0, z_position] )
-		star_generator(number_of_tips);
+		star(number_of_tips);
 }
 
 module christmas_tree() {
@@ -96,7 +96,7 @@ trunk();
 
 base();
 
-star();
+star_on_top();
 
 translate([-5,6,45]) sphere(r=3);
 translate([10,3,42]) sphere(r=3);
