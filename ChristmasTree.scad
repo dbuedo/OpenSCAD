@@ -14,9 +14,13 @@ for(i=[0:29])
       
 ]);
 }
+
+module christmas_tree() {
+
 leaf(0,30,30,0);
 leaf(20,20,20,10);
 leaf(35,20,15,0);
+
 
 translate([0,0,-20])
   cylinder(h=23,r=3);
@@ -58,7 +62,9 @@ translate([-3,18,13]) sphere(r=3);
 translate([-24,9,6]) sphere(r=3);
 translate([-15,-14,11]) sphere(r=3);
 translate([4,-23,7]) sphere(r=3);
+}
 
+christmas_tree();
 
 
 
