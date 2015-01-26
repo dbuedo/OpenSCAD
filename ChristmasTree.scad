@@ -15,15 +15,20 @@ for(i=[0:29])
 ]);
 }
 
+module trunk() {
+translate([0,0,-20])
+  cylinder(h=23,r=3);
+}
+
 module christmas_tree() {
 
 leaf(0,30,30,0);
 leaf(20,20,20,10);
 leaf(35,20,15,0);
 
-
-translate([0,0,-20])
-  cylinder(h=23,r=3);
+trunk();
+//translate([0,0,-20])
+//  cylinder(h=23,r=3);
 
 translate([0,0,-20])
   linear_extrude(2)
