@@ -1,5 +1,8 @@
 $fn=100;
 
+DEGREES_IN_CIRCLE = 360;
+
+
 module leaf(z,h,r,rr){
 translate([0,0,z])
 for(i=[0:29])
@@ -66,13 +69,18 @@ module star_tip() {
 			star_tip_base();
 }
 
-module star_body() {
-	number_of_tips=5;
-	rotation_angle=72;
 
-	for(k= [0:number_of_tips-1])
-		rotate([0, k*rotation_angle])
+module star_generator(number_of_tips) {
+	rotation_angle = DEGREES_IN_CIRCLE / number_of_tips;
+
+	for( k = [0:number_of_tips-1] )
+		rotate( [0, k * rotation_angle] )
 			star_tip();
+}
+
+module star_body() {
+	number_of_tips = 5;
+	star_generator(number_of_tips);
 }
 
 module star() {
