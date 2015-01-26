@@ -117,19 +117,21 @@ module crown() {
 	crown_level(35, 20, 15, 0);
 }
 
+module christmas_ball() {
+	radius = 3;
+	sphere(r=radius);
+}
+
 module christmas_balls() {
-	translate([-5,6,45]) sphere(r=3);
-	translate([10,3,42]) sphere(r=3);
-	translate([-2,-12,40]) sphere(r=3);
-	translate([5,15,25]) sphere(r=3);
-	translate([-16,-2,26]) sphere(r=3);
-	translate([8,-10,28]) sphere(r=3);
-	translate([19,-7,12]) sphere(r=3);
-	translate([19,15,7]) sphere(r=3);
-	translate([-3,18,13]) sphere(r=3);
-	translate([-24,9,6]) sphere(r=3);
-	translate([-15,-14,11]) sphere(r=3);
-	translate([4,-23,7]) sphere(r=3);	
+	balls = [
+				[-5, 6, 45], [10, 3, 42], [-2, -12, 40],
+				[5, 15, 25], [-16, -2, 26], [8, -10, 28],
+				[19, -7, 12], [19, 15, 7], [-3, 18, 13],
+				[-24, 9, 6], [-15, -14, 11], [4, -23, 7]
+			];
+	for(i = [0 : len(balls) - 1])
+		translate(balls[i])
+			christmas_ball();
 }
 
 module christmas_tree() {
