@@ -1,12 +1,5 @@
-OpenSCAD
-========
+Refactoring 
+-----------
+Session 1 of Refactoring to Desing Patterns Course.
 
-This is open scad source code.
-
-http://www.openscad.org/
-
-
-ChristmasTree
----------------
-
-![ChristmasTree](http://yuki-g.com/diary/img/131020.jpg)
+Language : OpenSCAD (http://www.openscad.org/)
