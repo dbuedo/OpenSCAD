@@ -1,19 +1,18 @@
 
-
-
-DEGREES_IN_CIRCLE = 360;
 RENDER_RESOLUTION = 100;
 $fn = RENDER_RESOLUTION;
 
+DEGREES_IN_CIRCLE = 360;
+
 module mirror_x() {
-	for(x=[0:1])
-		mirror([x,0,0])
+	for(x = [0 : 1])
+		mirror([x, 0, 0])
 			children();
 }
 
 module mirror_y() {
-	for(y=[0:1])
-		mirror([0,y,0])
+	for( y = [0 : 1])
+		mirror([0, y, 0])
 			children();
 }
 
@@ -22,8 +21,8 @@ module trunk() {
    radius = 3; 
    z_position = -20;
 
-	translate([0,0,z_position])
-  		cylinder(h=height, r=radius);
+	translate([0, 0, z_position])
+  		cylinder(h = height, r = radius);
 }
 
 module base() {
@@ -31,7 +30,7 @@ module base() {
 	radius = 16;
 	z_position = -20;
 
-	translate([0,0,z_position])
+	translate([0, 0, z_position])
   		linear_extrude(height)
     		circle(radius);
 }
@@ -39,13 +38,13 @@ module base() {
 module star_tip_base() {
 	polyhedron(
 		points=[
-			[0,0,0],[3,0,0],[3,0.5,0],[0,3,0],
-			[0,0,5],[0.5,0,5],[0.5,0.5,5],[0,0.5,5]
+			[0,0,0], [3,0,0], [3,0.5,0], [0,3,0],
+			[0,0,5], [0.5,0,5], [0.5,0.5,5], [0,0.5,5]
 		],
 		triangles=[
-			[0,1,2],[2,3,0],[4,6,5],[4,7,6],
-			[1,5,2],[5,6,2],[6,3,2],[3,6,7],
-			[5,1,0],[4,5,0],[4,0,3],[7,4,3]
+			[0,1,2], [2,3,0], [4,6,5], [4,7,6],
+			[1,5,2], [5,6,2], [6,3,2], [3,6,7],
+			[5,1,0], [4,5,0], [4,0,3], [7,4,3]
 		]
 	);
 }
@@ -59,7 +58,7 @@ module star_tip() {
 module star(number_of_tips) {
 	rotation_angle = DEGREES_IN_CIRCLE / number_of_tips;
 
-	for( k = [0:number_of_tips-1] )
+	for( k = [0 : number_of_tips - 1] )
 		rotate( [0, k * rotation_angle] )
 			star_tip();
 }
@@ -146,7 +145,3 @@ module christmas_tree() {
 }
 
 christmas_tree();
-
-
-
-
