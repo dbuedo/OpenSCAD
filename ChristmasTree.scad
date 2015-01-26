@@ -2,6 +2,18 @@ $fn=100;
 
 DEGREES_IN_CIRCLE = 360;
 
+module mirror_x() {
+	for(x=[0:1])
+		mirror([x,0,0])
+			children();
+}
+
+module mirror_y() {
+	for(y=[0:1])
+		mirror([0,y,0])
+			children();
+}
+
 module trunk() {
 	height = 23;
    radius = 3; 
@@ -33,18 +45,6 @@ module star_tip_base() {
 			[5,1,0],[4,5,0],[4,0,3],[7,4,3]
 		]
 	);
-}
-
-module mirror_x() {
-	for(x=[0:1])
-		mirror([x,0,0])
-			children();
-}
-
-module mirror_y() {
-	for(y=[0:1])
-		mirror([0,y,0])
-			children();
 }
 
 module star_tip() {
@@ -92,13 +92,17 @@ module leaf(height, radius) {
 	);
 }
 
+module repeat_rotating_z(times) {
+	rotation_angle = DEGREES_IN_CIRCLE / times;
+	for(i = [0 : times-1])
+  		rotate([0, 0, i * rotation_angle])
+  			children();
+}
 
 module leaves(height, radius) {
 	number_of_leaves = 18;
-	rotation_angle = DEGREES_IN_CIRCLE / number_of_leaves;
-	for(i = [0 : number_of_leaves-1])
-  				rotate([0, 0, i * rotation_angle])
-  					leaf(height, radius);
+	repeat_rotating_z(number_of_leaves)
+		leaf(height, radius);
 }
 
 module crown_level(z_position, height, radius, start_rotation){
