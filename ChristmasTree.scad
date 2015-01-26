@@ -48,10 +48,15 @@ module star_tip_base() {
 	);
 }
 
+module mirror_x() {
+	for(x=[0:1])
+		mirror([x,0,0])
+			children();
+}
+
 module star_tip_side() {
-	for(i=[0:1])
-		mirror([i,0,0])
-			star_tip_base();
+	mirror_x()
+		star_tip_base();
 }
 
 module star_tip() {
