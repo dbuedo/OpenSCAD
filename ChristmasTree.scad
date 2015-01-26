@@ -3,20 +3,6 @@ $fn=100;
 DEGREES_IN_CIRCLE = 360;
 
 
-module leaf(z,h,r,rr){
-translate([0,0,z])
-for(i=[0:29])
-  rotate([0,0,i*20+rr])
-  polyhedron(
-    points=[
-      [0,-2,h*0.1],[0,2,h*0.1],[r,0.5,0],[r,-0.5,0],
-      [0,-0.5,h],[0,0.5,h]],
-    triangles=[
-      [0,2,1],[0,3,2],[0,1,4],[1,5,4],
-      [2,3,4],[2,4,5],[0,4,3],[1,2,5]
-      
-]);
-}
 
 module trunk() {
 	height = 23;
@@ -85,10 +71,25 @@ module star_on_top() {
 		star(number_of_tips);
 }
 
+module crown_level(z,h,r,rr){
+	translate([0, 0, z])
+		for(i=[0:29])
+  			rotate([0,0,i*20+rr])
+  				polyhedron(
+					points=[
+      					[0,-2,h*0.1],[0,2,h*0.1],[r,0.5,0],
+						[r,-0.5,0],[0,-0.5,h],[0,0.5,h]],
+					triangles=[
+      					[0,2,1],[0,3,2],[0,1,4],[1,5,4],
+      					[2,3,4],[2,4,5],[0,4,3],[1,2,5]
+      				]
+				);
+}
+
 module crown() {
-	leaf(0,30,30,0);
-	leaf(20,20,20,10);
-	leaf(35,20,15,0);
+	crown_level(0,30,30,0);
+	crown_level(20,20,20,10);
+	crown_level(35,20,15,0);
 }
 
 module christmas_tree() {
