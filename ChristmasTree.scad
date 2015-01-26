@@ -21,7 +21,7 @@ module trunk() {
    z_position = -20;
 
 	translate([0,0,z_position])
-  		cylinder(h=height,r=radius);
+  		cylinder(h=height, r=radius);
 }
 
 module base() {
@@ -34,16 +34,7 @@ module base() {
     		circle(radius);
 }
 
-module christmas_tree() {
-
-leaf(0,30,30,0);
-leaf(20,20,20,10);
-leaf(35,20,15,0);
-
-trunk();
-
-base();
-
+module star() {
 translate([0,0,57])
 for(k=[0:4])
 rotate([0,k*72])
@@ -62,6 +53,19 @@ polyhedron(
     [5,1,0],[4,5,0],[4,0,3],[7,4,3]
   ]
 );
+}
+
+module christmas_tree() {
+
+leaf(0,30,30,0);
+leaf(20,20,20,10);
+leaf(35,20,15,0);
+
+trunk();
+
+base();
+
+star();
 
 translate([-5,6,45]) sphere(r=3);
 translate([10,3,42]) sphere(r=3);
