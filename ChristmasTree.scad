@@ -92,20 +92,22 @@ module leaf(height, radius) {
 	);
 }
 
+
 module crown_level(z_position, height, radius, start_rotation){
 	number_of_leaves = 18;
-	rotation_angle = 20;
-
+	rotation_angle = DEGREES_IN_CIRCLE / number_of_leaves;
+	
 	translate([0, 0, z_position])
-		for(i = [0 : number_of_leaves-1])
-  			rotate([0, 0, i * rotation_angle + start_rotation])
-  				leaf(height, radius);
+		rotate([0, 0, start_rotation])
+			for(i = [0 : number_of_leaves-1])
+  				rotate([0, 0, i * rotation_angle])
+  					leaf(height, radius);
 }
 
 module crown() {
 	crown_level(0,30,30,0);
-	//crown_level(20,20,20,10);
-	//crown_level(35,20,15,0);
+	crown_level(20,20,20,10);
+	crown_level(35,20,15,0);
 }
 
 module christmas_tree() {
