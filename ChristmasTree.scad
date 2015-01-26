@@ -60,15 +60,10 @@ module mirror_y() {
 			children();
 }
 
-
-module star_tip_side() {
-	mirror_x()
-		star_tip_base();
-}
-
 module star_tip() {
 	mirror_y()
- 		star_tip_side();
+ 		mirror_x()
+			star_tip_base();
 }
 
 module star() {
