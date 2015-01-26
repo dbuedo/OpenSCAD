@@ -67,8 +67,11 @@ module star_tip() {
 }
 
 module star_body() {
-	for(k=[0:4])
-		rotate([0,k*72])
+	number_of_tips=5;
+	rotation_angle=72;
+
+	for(k= [0:number_of_tips-1])
+		rotate([0, k*rotation_angle])
 			star_tip();
 }
 
