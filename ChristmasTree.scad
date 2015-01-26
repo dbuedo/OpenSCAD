@@ -48,6 +48,12 @@ module star_tip_base() {
 	);
 }
 
+module star_tip_side() {
+	for(i=[0:1])
+		mirror([i,0,0])
+			star_tip_base();
+}
+
 module star() {
 	z_position = 57;
 
@@ -56,9 +62,7 @@ module star() {
 			rotate([0,k*72])
 				for(j=[0:1])
 					mirror([0,j,0])
-						for(i=[0:1])
-							mirror([i,0,0])
-								star_tip_base();
+						star_tip_side();
 }
 
 module christmas_tree() {
