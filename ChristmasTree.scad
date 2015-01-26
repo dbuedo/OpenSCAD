@@ -1,6 +1,9 @@
-$fn=100;
+
+
 
 DEGREES_IN_CIRCLE = 360;
+RENDER_RESOLUTION = 100;
+$fn = RENDER_RESOLUTION;
 
 module mirror_x() {
 	for(x=[0:1])
