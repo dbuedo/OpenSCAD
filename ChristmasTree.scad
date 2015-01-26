@@ -78,16 +78,12 @@ module star_generator(number_of_tips) {
 			star_tip();
 }
 
-module star_body() {
-	number_of_tips = 5;
-	star_generator(number_of_tips);
-}
-
 module star() {
 	z_position = 57;
+	number_of_tips = 5;
 
-	translate([0,0,z_position])
-		star_body();
+	translate( [0, 0, z_position] )
+		star_generator(number_of_tips);
 }
 
 module christmas_tree() {
