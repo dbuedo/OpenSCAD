@@ -54,15 +54,21 @@ module mirror_x() {
 			children();
 }
 
+module mirror_y() {
+	for(y=[0:1])
+		mirror([0,y,0])
+			children();
+}
+
+
 module star_tip_side() {
 	mirror_x()
 		star_tip_base();
 }
 
 module star_tip() {
-	for(j=[0:1])
-		mirror([0,j,0])
-			star_tip_side();
+	mirror_y()
+ 		star_tip_side();
 }
 
 module star() {
