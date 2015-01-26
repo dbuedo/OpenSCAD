@@ -69,7 +69,6 @@ module star_tip() {
 			star_tip_base();
 }
 
-
 module star(number_of_tips) {
 	rotation_angle = DEGREES_IN_CIRCLE / number_of_tips;
 
@@ -86,18 +85,19 @@ module star_on_top() {
 		star(number_of_tips);
 }
 
+module crown() {
+	leaf(0,30,30,0);
+	leaf(20,20,20,10);
+	leaf(35,20,15,0);
+}
+
 module christmas_tree() {
 
-leaf(0,30,30,0);
-leaf(20,20,20,10);
-leaf(35,20,15,0);
-
-trunk();
-
-base();
-
-star_on_top();
-
+	base();
+	trunk();
+	crown();
+	star_on_top();
+	
 translate([-5,6,45]) sphere(r=3);
 translate([10,3,42]) sphere(r=3);
 translate([-2,-12,40]) sphere(r=3);
