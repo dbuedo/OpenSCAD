@@ -93,15 +93,18 @@ module leaf(height, radius) {
 }
 
 
-module crown_level(z_position, height, radius, start_rotation){
+module leaves(height, radius) {
 	number_of_leaves = 18;
 	rotation_angle = DEGREES_IN_CIRCLE / number_of_leaves;
-	
-	translate([0, 0, z_position])
-		rotate([0, 0, start_rotation])
-			for(i = [0 : number_of_leaves-1])
+	for(i = [0 : number_of_leaves-1])
   				rotate([0, 0, i * rotation_angle])
   					leaf(height, radius);
+}
+
+module crown_level(z_position, height, radius, start_rotation){
+	translate([0, 0, z_position])
+		rotate([0, 0, start_rotation])
+		   leaves(height, radius);
 }
 
 module crown() {
