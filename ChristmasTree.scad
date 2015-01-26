@@ -2,8 +2,6 @@ $fn=100;
 
 DEGREES_IN_CIRCLE = 360;
 
-
-
 module trunk() {
 	height = 23;
    radius = 3; 
@@ -73,13 +71,23 @@ module star_on_top() {
 
 
 module leaf(height, radius) {
+	back_reduction_ratio = 0.1;
+	back_position = height * back_reduction_ratio;
+	half_back_width = 2;
+	half_front_width = 0.5;
+
 	polyhedron(
 		points=[
-      		[0,-2,height*0.1],[0,2,height*0.1],[radius,0.5,0],
-			[radius,-0.5,0],[0,-0.5,height],[0,0.5,height]],
+      		[0, -half_back_width, back_position],
+			[0, half_back_width, back_position],
+			[radius, half_front_width, 0],
+			[radius, -half_front_width, 0],
+			[0, -half_front_width, height],
+			[0, half_front_width, height]
+			],
 		triangles=[
-      		[0,2,1],[0,3,2],[0,1,4],[1,5,4],
-      		[2,3,4],[2,4,5],[0,4,3],[1,2,5]
+      		[0,2,1], [0,3,2], [0,1,4], [1,5,4],
+      		[2,3,4], [2,4,5], [0,4,3], [1,2,5]
       	]
 	);
 }
