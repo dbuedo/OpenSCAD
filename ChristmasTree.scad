@@ -25,9 +25,13 @@ module trunk() {
 }
 
 module base() {
-translate([0,0,-20])
-  linear_extrude(2)
-    circle(16);
+	height = 2;
+	radius = 16;
+	z_position = -20;
+
+	translate([0,0,z_position])
+  		linear_extrude(height)
+    		circle(radius);
 }
 
 module christmas_tree() {
