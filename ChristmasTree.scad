@@ -66,13 +66,17 @@ module star_tip() {
 			star_tip_base();
 }
 
+module star_body() {
+	for(k=[0:4])
+		rotate([0,k*72])
+			star_tip();
+}
+
 module star() {
 	z_position = 57;
 
 	translate([0,0,z_position])
-		for(k=[0:4])
-			rotate([0,k*72])
-				star_tip();
+		star_body();
 }
 
 module christmas_tree() {
