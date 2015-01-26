@@ -16,8 +16,12 @@ for(i=[0:29])
 }
 
 module trunk() {
-translate([0,0,-20])
-  cylinder(h=23,r=3);
+	height = 23;
+   radius = 3; 
+   z_position = -20;
+
+	translate([0,0,z_position])
+  		cylinder(h=height,r=radius);
 }
 
 module christmas_tree() {
@@ -27,8 +31,6 @@ leaf(20,20,20,10);
 leaf(35,20,15,0);
 
 trunk();
-//translate([0,0,-20])
-//  cylinder(h=23,r=3);
 
 translate([0,0,-20])
   linear_extrude(2)
