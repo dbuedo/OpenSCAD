@@ -112,32 +112,32 @@ module crown_level(z_position, height, radius, start_rotation){
 }
 
 module crown() {
-	crown_level(0,30,30,0);
-	crown_level(20,20,20,10);
-	crown_level(35,20,15,0);
+	crown_level(0, 30, 30, 0);
+	crown_level(20, 20, 20, 10);
+	crown_level(35, 20, 15, 0);
+}
+
+module christmas_balls() {
+	translate([-5,6,45]) sphere(r=3);
+	translate([10,3,42]) sphere(r=3);
+	translate([-2,-12,40]) sphere(r=3);
+	translate([5,15,25]) sphere(r=3);
+	translate([-16,-2,26]) sphere(r=3);
+	translate([8,-10,28]) sphere(r=3);
+	translate([19,-7,12]) sphere(r=3);
+	translate([19,15,7]) sphere(r=3);
+	translate([-3,18,13]) sphere(r=3);
+	translate([-24,9,6]) sphere(r=3);
+	translate([-15,-14,11]) sphere(r=3);
+	translate([4,-23,7]) sphere(r=3);	
 }
 
 module christmas_tree() {
-
 	base();
 	trunk();
 	crown();
+	christmas_balls();
 	star_on_top();
-	
-translate([-5,6,45]) sphere(r=3);
-translate([10,3,42]) sphere(r=3);
-translate([-2,-12,40]) sphere(r=3);
-
-translate([5,15,25]) sphere(r=3);
-translate([-16,-2,26]) sphere(r=3);
-translate([8,-10,28]) sphere(r=3);
-
-translate([19,-7,12]) sphere(r=3);
-translate([19,15,7]) sphere(r=3);
-translate([-3,18,13]) sphere(r=3);
-translate([-24,9,6]) sphere(r=3);
-translate([-15,-14,11]) sphere(r=3);
-translate([4,-23,7]) sphere(r=3);
 }
 
 christmas_tree();
