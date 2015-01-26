@@ -71,19 +71,24 @@ module star_on_top() {
 		star(number_of_tips);
 }
 
-module crown_level(z,h,r,rr){
-	translate([0, 0, z])
+
+module leaf(height, radius) {
+	polyhedron(
+		points=[
+      		[0,-2,height*0.1],[0,2,height*0.1],[radius,0.5,0],
+			[radius,-0.5,0],[0,-0.5,height],[0,0.5,height]],
+		triangles=[
+      		[0,2,1],[0,3,2],[0,1,4],[1,5,4],
+      		[2,3,4],[2,4,5],[0,4,3],[1,2,5]
+      	]
+	);
+}
+
+module crown_level(z_position, height, radius, rotation){
+	translate([0, 0, z_position])
 		for(i=[0:29])
-  			rotate([0,0,i*20+rr])
-  				polyhedron(
-					points=[
-      					[0,-2,h*0.1],[0,2,h*0.1],[r,0.5,0],
-						[r,-0.5,0],[0,-0.5,h],[0,0.5,h]],
-					triangles=[
-      					[0,2,1],[0,3,2],[0,1,4],[1,5,4],
-      					[2,3,4],[2,4,5],[0,4,3],[1,2,5]
-      				]
-				);
+  			rotate([0,0,i*20+rotation])
+  				leaf(height, radius);
 }
 
 module crown() {
