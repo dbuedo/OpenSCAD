@@ -36,10 +36,16 @@ module base() {
 }
 
 module star_tip_base() {
+	height = 5;
+	side_length = 3;
+	side_width = 3;
+	bezel = 0.5;
 	polyhedron(
 		points=[
-			[0,0,0], [3,0,0], [3,0.5,0], [0,3,0],
-			[0,0,5], [0.5,0,5], [0.5,0.5,5], [0,0.5,5]
+			[0, 0, 0], [side_length, 0, 0], 
+			[side_length, bezel, 0], [0, side_width, 0],
+			[0, 0, height], [bezel, 0, height], 
+			[bezel, bezel, height], [0, bezel, height]
 		],
 		triangles=[
 			[0,1,2], [2,3,0], [4,6,5], [4,7,6],
